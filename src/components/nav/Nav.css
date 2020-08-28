@@ -1,0 +1,16 @@
+.Nav {
+
+}
+
+.NavItem{
+  color: white;
+  font-size: 5em;
+  /* font-family: 'Alata', sans-serif; */
+  
+}
+
+.NavItem:hover {
+  color: red;
+  transition: color;
+  /* font-family: 'Roboto', sans-serif; */
+}
