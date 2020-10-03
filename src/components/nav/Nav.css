@@ -1,16 +1,20 @@
 .Nav {
-
+  /* display: inline; */
+  /* max-width: 500px; */
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  /* justify-content: space-between; */
+  /* padding: 50px 0px; */
+  /* align-content: stretch; */
+  /* align-items: flex-start; */
+  /* background-color: red; */
 }
 
 .NavItem{
-  color: white;
-  font-size: 5em;
-  /* font-family: 'Alata', sans-serif; */
-  
+  font-size: 50px;
+  font-family: 'Alata', sans-serif;
+  cursor: pointer;
 }
 
-.NavItem:hover {
-  color: red;
-  transition: color;
-  /* font-family: 'Roboto', sans-serif; */
-}
+
