@@ -1,0 +1,108 @@
+@import '../../theme.scss';
+
+.title {
+  height: calc(100vh - var(--nav-height));
+  background-color: black;
+  color: white;
+  border-radius: 0px 0px $border-radius-wide $border-radius-wide;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr auto 1fr;
+  grid-auto-flow: column;
+  justify-items: end;
+  grid-column-gap: var(--spacing-small);
+  padding: var(--spacing-small);
+  overflow: hidden;
+}
+.subtitle {
+  display: 'block';
+  font-size: var(--font-size-subtitle);
+  font-family: 'Alata', sans-serif;
+}
+.greeting {
+  align-self: end;
+}
+.name {
+  font-size: 100px;
+  font-family: 'Alata', sans-serif;
+}
+
+.border { 
+  border-radius: 100%;
+  height: 100%;
+  grid-column: 2 / 2;
+  grid-row: 1 / 4;
+  justify-self: center;
+  align-self: center;
+  padding: var(--spacing-small);
+  box-sizing: border-box;
+  overflow: hidden;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: $breakpoint-sm) {
+  .title {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr auto 1fr auto;
+    grid-auto-flow: row;
+    justify-items: center;
+  }
+  .name {
+    font-size: 20vw;
+  }
+  .subtitle {
+    font-size: 10vw;
+  }
+
+  .border {
+    height: 100%;
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+}
+
+@media only screen and (max-height: $breakpoint-xs) {
+  .name {
+    font-size: 15vh;
+  }
+  .subtitle {
+    font-size: 8vh;
+  }
+  .border {
+    padding: 15px;
+  }
+}
+
+
+// @media only screen and (max-height: $breakpoint-sm) and (max-width: $breakpoint-sm) {
+//   .title {
+//     grid-template-columns: auto;
+//     grid-template-rows: 1fr auto 1fr auto;
+//     grid-auto-flow: row;
+//     justify-items: center;
+//   }
+//   .name {
+//     font-size: 20vw ;
+//   }
+//   .subtitle {
+//     font-size: 10vw;
+//   }
+
+//   .border {
+//     height: 100%;
+//     grid-column: auto / auto;
+//     grid-row: auto / auto;
+//     padding: 15px;
+//   }
+// }

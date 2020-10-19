@@ -1,29 +1,11 @@
 .App {
   height: 100vh;
   width: 100vw;
-  
-  display: grid;
-  grid-template-columns: 310px auto;
-  grid-template-rows: auto 1fr;
-  /* grid-template-rows: 21fr; */
-  grid-column-start: 2;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
 
-  justify-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
   align-items: stretch;
-}
-
-.Apps {
-  color: white;
-  display: inline;
-  /* font-size: calc(50px + 20px - 1vw); */
-
-  /* width: 100%; */
-}
-
-@media screen and (max-width: 800px) {
-  .App {
-    grid-template-columns: 100px auto;
-  }
 }

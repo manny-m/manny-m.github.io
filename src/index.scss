@@ -1,8 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Roboto&display=swap');
+@import './theme.scss';
+
+:root {
+  /* font */
+  --font-size-title: 100px;
+  --font-size-subtitle: 50px;
+
+  /* spacing */
+  --spacing-large: 70px;
+  --spacing-small: 20px;
+  --nav-height: 100px;
+
+
+}
+
+@media only screen and (max-width: $breakpoint-sm), (max-height: $breakpoint-sm) {
+  :root {
+    --spacing-small: 10px;
+  }
+}
+
+@media only screen and (max-height: $breakpoint-xs) {
+  :root {
+    --nav-height: 50px;
+  }
+}
 
 body {
-  margin: 0;
-  background-color: black;
+  margin: 0px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
