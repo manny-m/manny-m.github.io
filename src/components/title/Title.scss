@@ -3,6 +3,7 @@
 .titleCard {
   border-radius: 0px 0px $border-radius-wide $border-radius-wide;
   height: calc(100vh - var(--nav-height));
+  width: 100%;
 }
 
 .bgContainer {
@@ -50,6 +51,7 @@
     font-family: 'Alata', sans-serif;
   }
   .border { 
+    height: 100%;
     grid-column: 2 / 2;
     grid-row: 1 / 4;
     justify-self: center;
@@ -78,6 +80,7 @@
       padding: 10px;
       text-align: center;
       font-size: 2vw;
+
       a:visited {
         color: white,
       }
@@ -116,6 +119,7 @@
     }
   }
 }
+
 
 @media (min-aspect-ratio: 70/27) {
   .content {

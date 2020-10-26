@@ -3,6 +3,10 @@ import './Title.scss';
 import PropTypes from 'prop-types';
 import { useSpring, animated as a } from 'react-spring'
 import { FaGithubSquare, FaLinkedin } from 'react-icons/fa';
+import nopattern1 from './nopattern1.png';
+import nopattern2 from './nopattern2.png';
+import nopattern3 from './nopattern3.png';
+import manny450 from './manny450.png';
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
 
@@ -10,19 +14,18 @@ const interpolatorGen = (x, y, factor) => `translate(${x / factor}px,${y / facto
 
 const images = [
   {
-    imgAddress: `url(${window.location.origin}/nopattern1.png)`,
+    imgAddress: `url(${nopattern1})`,
     interpolator: (x, y) => interpolatorGen(x, y, 10)
   },
   {
-    imgAddress: `url(${window.location.origin}/nopattern2.png)`,
+    imgAddress: `url(${nopattern2})`,
     interpolator: (x, y) => interpolatorGen(x, y, 30)
   },
   {
-    imgAddress: `url(${window.location.origin}/nopattern3.png)`,
+    imgAddress: `url(${nopattern3})`,
     interpolator: (x, y) => interpolatorGen(x, y, 40)
   },
 ];
-
 
 function Title(props) {
   const [spring, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
@@ -52,7 +55,7 @@ function Title(props) {
         </span>
         <div className='border'>
           {/* <span className='helper'></span> */}
-          <img alt='Portrait of Manuel' src={window.location.origin + '/manny450.png'} />
+          <img alt='Portrait of Manuel' src={manny450} />
           <div> 
             <a href='https://www.linkedin.com/in/mmoquete/'  target='_blank' rel='noopener noreferrer'>
               <FaLinkedin/>
