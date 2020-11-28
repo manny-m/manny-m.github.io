@@ -1,0 +1,38 @@
+.Nav {
+  /* display: inline; */
+  /* max-width: 500px; */
+  // display: inline-flex;
+  // flex-direction: column;
+  // flex-wrap: nowrap;
+  /* justify-content: space-between; */
+  /* padding: 50px 0px; */
+  /* align-content: stretch; */
+  /* align-items: flex-start; */
+  /* background-color: red; */
+}
+
+.NavItem{
+  font-size: 50px;
+  font-family: 'Alata', sans-serif;
+  cursor: pointer;
+}
+
+.navbar{
+  background-color: red;
+  width: 100%;
+  min-height: 6vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all .7s ease-in;
+}
+//IMPORTANT
+.scrolled{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+}
+
+

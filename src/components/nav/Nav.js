@@ -1,61 +1,64 @@
-import React , {useState}from 'react';
-import './Nav.css';
-import { useSpring, animated as a} from 'react-spring';
-import PropTypes from 'prop-types';
+import React, {useState, useEffect, useRef} from 'react';
+import './Nav.scss';
 
-const navItemLeftMargin = 50;
-const navItemStartColor = 'rgba(0,0,0,0)'; 
-const navItemDefaultColor = 'grey'; 
-
-const NavItem = (props) =>{
-  const {active, color, label, children} = props;
-  const [hovering, setHovering] = useState(false);
-
-  // When hover slide item by 20
-  const aProps = useSpring({ 
-    paddingLeft: hovering || active ? navItemLeftMargin + 20 : navItemLeftMargin,
-    color: hovering ? color || navItemDefaultColor : navItemStartColor,
-    '-webkit-text-stroke': `1.5px ${hovering ? color || navItemDefaultColor : 'white'}`
-  });
-
-  return(
-    <div 
-      className='NavItem'
-      onMouseEnter={()=>{setHovering(true)}} 
-      onMouseLeave={()=>{setHovering(false)}}
-    >
-      <a.span  style={aProps}> 
-        {label || children}
-      </a.span>
-    </div>
-  )    
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
 }
 
-NavItem.propTypes = {
-  color: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  active: PropTypes.bool.isRequired
-};
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
 
 const Nav = (props) => {
   const { items } = props;
+  const { height, width } = useWindowDimensions();
+  console.log(height);
+  const [scrolled,setScrolled]= useState(false);
+  const navRef = useRef();
+
+  const handleScroll=() => {
+    const sticky = navRef.current.offsetTop;
+    const offset = window.pageYOffset;
+    if(offset >= sticky ){
+      setScrolled(true);
+    }
+    else{
+      setScrolled(false);
+    }
+  }
+
+
+  useEffect(() => {
+    window.addEventListener('scroll',handleScroll)
+  });
+
+  let navbarClasses=['navbar'];
+  if(scrolled){
+    navbarClasses.push('scrolled');
+  }
+
+
   return (
-    <div className='Nav'>
+    <div ref={navRef} className={navbarClasses.join(' ')}>
       
-      {items.map(item =>
-        <NavItem
-          key={item.label}
-          color={item.color} 
-          active={item.active}
-          label={item.label}
-        />
-      )}
+      nav
     </div>
   );
 }
-
-Nav.propTypes = { 
-  items: PropTypes.arrayOf(PropTypes.shape(NavItem.propTypes)).isRequired
-};
 
 export default Nav;
